@@ -1,0 +1,2 @@
+# WordSquare
+Coding challenge
