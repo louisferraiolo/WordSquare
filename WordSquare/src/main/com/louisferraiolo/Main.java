@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Main {
     ArrayList<String> dicList;
     int squareNum; // TODO: Make a class for these;
+    String originalLetters; // TODO: Make a class for these;
     String letters; // TODO: Make a class for these;
     char[] letterCharSet; // TODO: Make a class for these;
     int[] charsLeft = new int[64];
@@ -17,10 +18,10 @@ public class Main {
 
     public static void main(String[] args) {
         Main instance = new Main(); // Had to create an instance of main as you cannot call a non-static method from a static method.
-
         // Get users input to allow for the larger word squares and custom input.
         instance.getUserInput();
         // Convert the string to char array so it can be manipulated more easily (each character)
+        instance.letters = instance.originalLetters;
         instance.letterCharSet = instance.letters.toCharArray();
         //
         instance.charsLeft = instance.countChars();
@@ -40,7 +41,7 @@ public class Main {
 //        main.printDictionary();
     }
 
-    public int[] countChars()
+    private int[] countChars()
     {
         int[] countedChars = new int[64];
         for( char currentChar : letterCharSet )
@@ -53,7 +54,7 @@ public class Main {
         return countedChars;
     }
 
-    public ArrayList<String> initialDictionary() throws IOException
+    private ArrayList<String> initialDictionary() throws IOException
     {
         ArrayList<String> dictionaryList  = new ArrayList<>();
 
@@ -63,7 +64,7 @@ public class Main {
         BufferedReader in = new BufferedReader(new FileReader(f));
         String currentInput;
         // Do all my manipulating inside this loop as creating another for loop will make it O(n^2).
-        while( (currentInput = in.readLine() ) != null )
+        while( (currentInput = in.readLine() ) != null ) // Time complexity O(n) where n is the amount of lines in the txt file
         {
             if( currentInput.length() == squareNum  ) // Only use the words from dictionary which have same length as specified.
             {
@@ -79,31 +80,33 @@ public class Main {
     }
 
 
-
-    public void populateSquare( ArrayList<String> array, int what )
+    // Function has to be recursive to avoid multiple nested for loops which would be inefficient.
+    private void populateSquare( ArrayList<String> array, int what )
     {
-
-        for( int i = 0; i < array.size(); i++ ) {
-            System.out.println("what: " + what);
+        for( int i = 0; i < array.size(); i++ )
+        {
             String initialWord = array.get(i);
             System.out.println("word: " + initialWord);
             String letter = "";
-            for( int j = 1; j <= what; j++) {
-                letter += Character.toString(initialWord.charAt(j));
+            for( int j = 1; j <= what; j++)
+            {
+                if( initialWord.length() > j )
+                    letter += Character.toString(initialWord.charAt(j));
             }
             System.out.println("LETTER: " + letter);
             ArrayList<String> wordsStarting = getWordStarting(letter);
             if( wordsStarting.size() > 0 )
             {
-                usedWords.add(initialWord);
-                wordSquare.add(initialWord);
+                addToWordSquare(initialWord);
                 printArray(wordsStarting, "wordsStarting");
-                if(what == squareNum) {
+                if(what == squareNum)
+                {
                     System.out.println("2736126362137 - REACHED ALL WORDS !!");
                     printArray(wordSquare, "wordSquare");
-                    return;
+                    break;
                 }
                 System.out.println("what: " + what);
+                // Recursive call to avoid nested for loops and worse time complexity
                 populateSquare(wordsStarting, ++what);
             }else{
                 System.out.println("Not possible with: " + initialWord);
@@ -115,11 +118,42 @@ public class Main {
 
     }
 
-    public boolean checkApplicable( String input, String letters )
+    private void addToWordSquare( String initialWord )
+    {
+        usedWords.add(initialWord);
+        wordSquare.add(initialWord);
+        removeCharacters(initialWord);
+    }
+
+    private void removeCharacters( String word )
+    {
+        System.out.println("Word: " + word + " <> letterSet: " + letters);
+        ArrayList<Integer> indexes = new ArrayList<>(); // This will hopefully avoid the problem of letters having 2 a's but word having 1 a.
+        //String newLetters = "";
+        for( int i = 0; i < letters.length(); i++ )
+        {
+            if( word.contains(Character.toString(letters.charAt(i))) )
+            {
+                indexes.add(i);
+            }
+        }
+        StringBuilder sb = new StringBuilder(letters);
+        for( int i = 0; i < indexes.size(); i++ )
+        {
+            System.out.println("Attempting to delete index: " + i + "(" + indexes.get(i) + ") from: " + sb.toString());
+            sb.deleteCharAt(indexes.get(i) -i);
+        }
+        String resultString = sb.toString();
+        letters =  resultString;
+        System.out.println("PRE DELETE: " + letters + "\nAFTER DELETE: " + resultString);
+    }
+
+    private boolean checkApplicable( String input, String letters )
     {
         int inputLen = input.length();
         for( int i = 0; i < inputLen; i++ )
         {
+            // TODO: Works for now but is there a better way.
             char currentChar = input.charAt(i);
             if( !letters.contains( Character.toString(currentChar) ) )
             {
@@ -129,41 +163,41 @@ public class Main {
         return true;
     }
 
-    public void createWordSquare()
-    {
-        // Make copy of letters incase this all goes to sh*t.
-        String characters = letters;
-        for( int i = 0; i < squareNum; i++) {
-            for (int j = 0; j < dicList.size(); j++) {
-                String currentWord = dicList.get(j);
-                System.out.println(currentWord);
-                characters = removeLetters(currentWord, characters);// This is going to remove the characters which are now used for index J.
-                for(int lol =0;lol<characters.length();lol++) {
-                    System.out.println(characters.charAt(lol));
-                }
-            }
-        }
-    }
+//    public void createWordSquare()
+//    {
+//        // Make copy of letters incase this all goes to sh*t.
+//        String characters = letters;
+//        for( int i = 0; i < squareNum; i++) {
+//            for (int j = 0; j < dicList.size(); j++) {
+//                String currentWord = dicList.get(j);
+//                System.out.println(currentWord);
+//                characters = removeLetters(currentWord, characters);// This is going to remove the characters which are now used for index J.
+//                for(int lol =0;lol<characters.length();lol++) {
+//                    System.out.println(characters.charAt(lol));
+//                }
+//            }
+//        }
+//    }
 
-    public String removeLetters( String input, String letters )
-    {
-        char[] removeChars = input.toCharArray();
-        char[] currentChars = letters.toCharArray();
-        return currentChars.toString();
-    }
+//    private String removeLetters( String input, String letters )
+//    {
+//        char[] removeChars = input.toCharArray();
+//        char[] currentChars = letters.toCharArray();
+//        return currentChars.toString();
+//    }
 
 
-    public void getUserInput()
+    private void getUserInput()
     {
         Scanner scanner = new Scanner(System.in);
         String input;
         do {
             System.out.println("Provide a word square integer and letters? 4 eeeeddoonnnsssrv");
             input = scanner.nextLine();
-        } while( !checkUserInput(input) );
+        }while( !checkUserInput(input) );
     }
 
-    public boolean checkUserInput( String input )
+    private boolean checkUserInput( String input )
     {
         String[] spacesSplit = input.split("\\s+");
         if ( spacesSplit.length != 2 )
@@ -174,15 +208,14 @@ public class Main {
             exception.printStackTrace();
             return false;
         }
-        letters = spacesSplit[1].toLowerCase();
-        if ( letters.length() != (squareNum * squareNum) )
+        originalLetters = spacesSplit[1].toLowerCase();
+        if ( originalLetters.length() != (squareNum * squareNum) )
             return false;
-        if ( containsNum(letters) )
-            return false;
-        return true;
+        return containsNum(originalLetters);
     }
 
-    public final boolean containsNum(String s) {
+    private boolean containsNum(String s)
+    {
         boolean containsNum = false;
 
         if( s != null ) {
@@ -195,8 +228,9 @@ public class Main {
         return containsNum;
     }
 
-    public ArrayList<String> getWordStarting( String startsWith )
+    private ArrayList<String> getWordStarting( String startsWith )
     {
+
         ArrayList<String> wordsStarting  = new ArrayList<>();
         for( String word : dicList )
         {
@@ -207,13 +241,12 @@ public class Main {
         return wordsStarting;
     }
 
-    public void printArray( ArrayList<String> array, String prefix )
+    private void printArray( ArrayList<String> array, String prefix )
     {
         System.out.println(prefix + ": ");
-        for( String s : array ) { // Explore the use of foreach instead of mu usual (for int i =0;.....)
+        for( String s : array ) // Explore the use of foreach instead of mu usual (for int i =0;.....)
             System.out.println(s);
-        }
-        System.out.println(prefix + "end of " + prefix);
+        System.out.println("end of " + prefix);
     }
 
 }
