@@ -20,6 +20,7 @@ public class Main {
         Main instance = new Main(); // Had to create an instance of main as you cannot call a non-static method from a static method.
         // Get users input to allow for the larger word squares and custom input.
         instance.getUserInput();
+
         // Convert the string to char array so it can be manipulated more easily (each character)
         instance.letters = instance.originalLetters;
         instance.letterCharSet = instance.letters.toCharArray();
@@ -54,7 +55,7 @@ public class Main {
         return countedChars;
     }
 
-    private ArrayList<String> initialDictionary() throws IOException
+    public ArrayList<String> initialDictionary() throws IOException
     {
         ArrayList<String> dictionaryList  = new ArrayList<>();
 
@@ -134,18 +135,33 @@ public class Main {
         {
             if( word.contains(Character.toString(letters.charAt(i))) )
             {
-                indexes.add(i);
+                letters = removeChar(letters, letters.charAt(i));
             }
         }
-        StringBuilder sb = new StringBuilder(letters);
-        for( int i = 0; i < indexes.size(); i++ )
+        System.out.println("AFTER DELETE: " + letters);
+    }
+
+    private String removeChar( String input, char c )
+    {
+        System.out.println( "(D) PRE: " + input );
+        int j, k = 0, n = input.length();
+        char []charArray = input.toCharArray();
+        // Iterate over each char
+        for (int i = j = 0; i < n; i++)
         {
-            System.out.println("Attempting to delete index: " + i + "(" + indexes.get(i) + ") from: " + sb.toString());
-            sb.deleteCharAt(indexes.get(i) -i);
+            if (charArray[i] != c)
+                charArray[j++] = charArray[i];
+            else
+                k++;
         }
-        String resultString = sb.toString();
-        letters =  resultString;
-        System.out.println("PRE DELETE: " + letters + "\nAFTER DELETE: " + resultString);
+
+        while(k > 0)
+        {
+            charArray[j++] = '\0'; // Account for the end of each char[] having this here to show end of char sequence.
+            k--;
+        }
+        System.out.println( "(D) POST: " + String.valueOf(charArray) );
+        return String.valueOf(charArray);
     }
 
     private boolean checkApplicable( String input, String letters )
@@ -187,7 +203,7 @@ public class Main {
 //    }
 
 
-    private void getUserInput()
+    public void getUserInput()
     {
         Scanner scanner = new Scanner(System.in);
         String input;
@@ -197,7 +213,7 @@ public class Main {
         }while( !checkUserInput(input) );
     }
 
-    private boolean checkUserInput( String input )
+    public boolean checkUserInput( String input )
     {
         String[] spacesSplit = input.split("\\s+");
         if ( spacesSplit.length != 2 )
@@ -209,12 +225,14 @@ public class Main {
             return false;
         }
         originalLetters = spacesSplit[1].toLowerCase();
-        if ( originalLetters.length() != (squareNum * squareNum) )
+        if( originalLetters.length() != (squareNum * squareNum) )
             return false;
-        return containsNum(originalLetters);
+        if( containsNum(originalLetters) )
+            return false;
+        return true;
     }
 
-    private boolean containsNum(String s)
+    public boolean containsNum(String s)
     {
         boolean containsNum = false;
 

@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29b399fc-b452-4b72-b309-d2436b7fda60" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WordSquare/META-INF/WordSquare.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WordSquare/com/louisferraiolo/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WordSquare/com/louisferraiolo/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,8 +22,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+            <state relative-caret-position="56">
+              <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -37,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2184">
-              <caret line="240" column="29" lean-forward="true" selection-start-line="240" selection-start-column="29" selection-end-line="240" selection-end-column="29" />
+            <state relative-caret-position="144">
+              <caret line="151" column="34" lean-forward="true" selection-start-line="149" selection-start-column="39" selection-end-line="151" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,8 +67,9 @@
       <find>REACHED</find>
       <find>wordSq</find>
       <find>.get</find>
-      <find>letters</find>
       <find>eons</find>
+      <find>charsLeft</find>
+      <find>letters</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -195,7 +193,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551285500731" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551434229594" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -367,7 +365,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3340448" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991462" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3991462" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32977587" />
@@ -386,6 +384,24 @@
       <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.32960597" />
     </layout>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java</url>
+          <line>217</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java</url>
+          <line>133</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/louisferraiolo/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/Helper.java">
@@ -402,16 +418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9090">
@@ -419,10 +425,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2184">
-          <caret line="240" column="29" lean-forward="true" selection-start-line="240" selection-start-column="29" selection-end-line="240" selection-end-column="29" />
+        <state relative-caret-position="144">
+          <caret line="151" column="34" lean-forward="true" selection-start-line="149" selection-start-column="39" selection-end-line="151" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
