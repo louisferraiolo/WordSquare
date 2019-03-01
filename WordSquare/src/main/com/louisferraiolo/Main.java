@@ -119,35 +119,59 @@ public class Main {
 
     }
 
+    // TODO: Get rid of this awful global var;
+    String currentWord;
+
     private void addToWordSquare( String initialWord )
     {
+        currentWord = initialWord;
         usedWords.add(initialWord);
         wordSquare.add(initialWord);
+        System.out.println("(D) addtoWordSquare: pre letters: " + letters);
         removeCharacters(initialWord);
+        System.out.println("(D) addtoWordSquare: post letters: " + letters);
+
     }
+
 
     private void removeCharacters( String word )
     {
-        System.out.println("Word: " + word + " <> letterSet: " + letters);
+        System.out.println("Word: " + currentWord + " <> letterSet: " + letters);
         ArrayList<Integer> indexes = new ArrayList<>(); // This will hopefully avoid the problem of letters having 2 a's but word having 1 a.
         //String newLetters = "";
         for( int i = 0; i < letters.length(); i++ )
         {
-            if( word.contains(Character.toString(letters.charAt(i))) )
+            if( currentWord.contains(Character.toString(letters.charAt(i))) )
             {
+                System.out.println( "(D) letter deleting: " + letters.charAt(i) + ", letters: " + letters );
                 letters = removeChar(letters, letters.charAt(i));
             }
         }
-        System.out.println("AFTER DELETE: " + letters);
     }
 
     private String removeChar( String input, char c )
     {
         System.out.println( "(D) PRE: " + input );
-        int j, k = 0, n = input.length();
+        int i = 0, j = i, k = 0, n = input.length();
+        boolean found = false;
         char []charArray = input.toCharArray();
         // Iterate over each char
-        for (int i = j = 0; i < n; i++)
+        StringBuilder build = new StringBuilder(input);
+//        while( i < n )
+//        {
+//            System.out.println("(D) Comparing: " + charArray[i] + " against: " + c);
+//            if( charArray[i] != c && !found ) {
+//                charArray[j++] = charArray[i];
+//            }else if(!found){
+//                System.out.println("(D) PRE input: " + build);
+//                k++;
+//                build.deleteCharAt(i);
+//                System.out.println("(D) POST input: " + build);
+//                found = true;
+//            }
+//            i++;
+//        }
+        for (i = j = 0; i < n; i++)
         {
             if (charArray[i] != c)
                 charArray[j++] = charArray[i];

@@ -34,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="151" column="34" lean-forward="true" selection-start-line="149" selection-start-column="39" selection-end-line="151" selection-end-column="34" />
+            <state relative-caret-position="-661">
+              <caret line="126" column="33" selection-start-line="126" selection-start-column="22" selection-end-line="126" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,6 +70,9 @@
       <find>eons</find>
       <find>charsLeft</find>
       <find>letters</find>
+      <find>(D)</find>
+      <find>post le</find>
+      <find>post letters:</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -193,7 +196,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551434229594" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551437207737" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -389,15 +392,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java</url>
-          <line>217</line>
+          <line>141</line>
           <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java</url>
-          <line>133</line>
-          <properties />
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -437,8 +434,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="151" column="34" lean-forward="true" selection-start-line="149" selection-start-column="39" selection-end-line="151" selection-end-column="34" />
+        <state relative-caret-position="-661">
+          <caret line="126" column="33" selection-start-line="126" selection-start-column="22" selection-end-line="126" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
