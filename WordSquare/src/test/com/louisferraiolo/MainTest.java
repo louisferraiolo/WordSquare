@@ -18,7 +18,7 @@ public class MainTest {
         String[] args = null;
         main = new Main();
         String letters = "eeeeddoonnnsssrv";
-        wordSquare = new WordSquare(4, letters, main.countChars(letters.toCharArray()) );
+        wordSquare = new WordSquare(4, letters, Helper.getCharCount(letters.toCharArray()) );
     }
 
     @DisplayName("Download Dictionary from path")
@@ -66,9 +66,9 @@ public class MainTest {
     public void testContainsDigit()
     {
         // Check declining all horrible inputs
-        Assertions.assertTrue(main.containsNum("1"), "returned as false for 1");
-        Assertions.assertFalse(main.containsNum("a"), "Method allowed 'a' as digit");
-        Assertions.assertFalse(main.containsNum("lo lol"), "Method allowed 'lo lol' as digit");
+        Assertions.assertTrue(Helper.containsNum("1"), "returned as false for 1");
+        Assertions.assertFalse(Helper.containsNum("a"), "Method allowed 'a' as digit");
+        Assertions.assertFalse(Helper.containsNum("lo lol"), "Method allowed 'lo lol' as digit");
     }
 
     @DisplayName("Test deleting characters")
@@ -83,7 +83,7 @@ public class MainTest {
         String letters = "abbcddef";
         char currentChar = letters.charAt(1);
         int index = currentChar - 97; // 97 as it is the ASCII code for 'a'.
-        int[] charsLeft = main.countChars(letters.toCharArray());
+        int[] charsLeft = Helper.getCharCount(letters.toCharArray());
         Assertions.assertEquals(charsLeft[index], 2); // Checking there are 2 b's.
         String word = "dad";
         currentChar = word.charAt(0);
@@ -102,7 +102,7 @@ public class MainTest {
     {
         // Check declining all horrible inputs
         String letters = "aabceillpp";
-        int[] charsLeft = main.countChars(letters.toCharArray());
+        int[] charsLeft = Helper.getCharCount(letters.toCharArray());
         String word = "applicable";
         boolean applicable = main.checkApplicable(word, charsLeft);
         Assertions.assertTrue(applicable); // Should be true as the letterset contains all the characters inside word.

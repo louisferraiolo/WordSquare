@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+
     private WordSquare wordSquare;
 
     public static void main(String[] args)
@@ -13,10 +14,6 @@ public class Main {
         // Get users input to allow for the larger word squares and custom input.
         instance.getUserInput();
 
-        // Convert the string to char array so it can be manipulated more easily (each character)
-//        instance.letters = instance.originalLetters;
-        //
-        //instance.wordSquare.setCharsLeft(instance.countChars(instance.wordSquare.getLetters().toCharArray()));
         // Get all the applicable words that could be possible
         Helper.profile(null);
         try {
@@ -27,26 +24,13 @@ public class Main {
         Helper.profile("Getting relative words");
         Helper.profile(null);
         if( instance.wordSquare.getDictionary().size() > 0 ) {
-            // TODO: Try eventually do all of this in the one while loop to save time.
+            // TODO: Try eventually do all of this in the one while loop to save time. - look into the possibility might not be possible due to dictionary not being initialised.
             instance.populateSquare(instance.wordSquare.getDictionary(), 1);
         }else{
             System.out.println("No applicable words for that character set.");
         }
         Helper.profile("Creating word square");
-//        main.getAllWordsStartWith('b');
         instance.printArray(instance.wordSquare.getWordSquareWords(), "FINAL wordSquare");
-    }
-
-    public int[] countChars( char[] array )
-    {
-        int[] countedChars = new int[26];
-        for( char currentChar : array )
-        {
-            int index = currentChar - 97; // 97 as it is the ASCII code for 'a'.
-            countedChars[index]++; // Increment the amount of times that specific charcter in the alphabet is used.
-            //System.out.println(currentChar + " is used: " + countedChars[index] + " times.");
-        }
-        return countedChars; // Not straight assigning it to charsLeft as the jUnit testing can use the method and return something.
     }
 
     public ArrayList<String> initialDictionary() throws IOException
@@ -54,7 +38,7 @@ public class Main {
         ArrayList<String> dictionaryList  = new ArrayList<>();
 
         String home = System.getProperty("user.home");
-        File f = new File(home + File.separator + "Desktop" + File.separator + "dictionary.txt");
+        File f = new File(home + File.separator + "Desktop" + File.separator + "dictionary.txt"); // Using file seperators to anticipate crashes on various os's as windows and mac use diff sep's.
         if(!f.exists())
         {
             System.out.println("File not found at: " + f.getAbsolutePath() );
@@ -109,9 +93,6 @@ public class Main {
             }else{
                 System.out.println("Not possible with: " + initialWord);
             }
-//        usedWords.add(firstWord);
-//        char letter = firstWord[1];
-//        String next = getWordStarting(letter);
         }
 
     }
@@ -127,7 +108,7 @@ public class Main {
 
     public int[] removeCharacters( String word, int[] array )
     {
-        String lettersLeft = getLettersLeft(array);
+        String lettersLeft = Helper.getLettersLeft(array);
         System.out.println("Word: " + word + " <> lettersLeft PRE: " + lettersLeft );
         ArrayList<Integer> indexes = new ArrayList<>(); // This will hopefully avoid the problem of letters having 2 a's but word having 1 a.
         for( int i = 0; i < word.length(); i++ )
@@ -138,64 +119,10 @@ public class Main {
             array[index]--; // Decrement the amount of times that specific charcter in the alphabet is used.
             System.out.println(currentChar + " is now used: " + array[index] + " times from " + previousVal + " times.");
         }
-        lettersLeft = getLettersLeft(array);
+        lettersLeft = Helper.getLettersLeft(array);
         System.out.println("lettersLeft POST: " +  lettersLeft );
         return array;
     }
-
-    public String getLettersLeft( int[]array )
-    {
-        String buildingString = "";
-        for( int i = 0; i < array.length; i++ )
-        {
-            char c = (char)(i+97);
-            if( array[i] > 0 )
-            {
-                for( int j = 0; j < array[i]; j++ )
-                    buildingString += c;
-            }
-        }
-        return buildingString;
-    }
-
-//    private String removeChar( String input, char c )
-//    {
-//        System.out.println( "(D) PRE: " + input );
-//        int i = 0, j = i, k = 0, n = input.length();
-//        boolean found = false;
-//        char []charArray = input.toCharArray();
-//        // Iterate over each char
-//        StringBuilder build = new StringBuilder(input);
-////        while( i < n )
-////        {
-////            System.out.println("(D) Comparing: " + charArray[i] + " against: " + c);
-////            if( charArray[i] != c && !found ) {
-////                charArray[j++] = charArray[i];
-////            }else if(!found){
-////                System.out.println("(D) PRE input: " + build);
-////                k++;
-////                build.deleteCharAt(i);
-////                System.out.println("(D) POST input: " + build);
-////                found = true;
-////            }
-////            i++;
-////        }
-//        for (i = j = 0; i < n; i++)
-//        {
-//            if (charArray[i] != c)
-//                charArray[j++] = charArray[i];
-//            else
-//                k++;
-//        }
-//
-//        while(k > 0)
-//        {
-//            charArray[j++] = '\0'; // Account for the end of each char[] having this here to show end of char sequence.
-//            k--;
-//        }
-//        System.out.println( "(D) POST: " + String.valueOf(charArray) );
-//        return String.valueOf(charArray);
-//    }
 
     public boolean checkApplicable( String input, int[] array )
     {
@@ -210,30 +137,6 @@ public class Main {
         }
         return true;
     }
-
-//    public void createWordSquare()
-//    {
-//        // Make copy of letters incase this all goes to sh*t.
-//        String characters = letters;
-//        for( int i = 0; i < squareNum; i++) {
-//            for (int j = 0; j < dicList.size(); j++) {
-//                String currentWord = dicList.get(j);
-//                System.out.println(currentWord);
-//                characters = removeLetters(currentWord, characters);// This is going to remove the characters which are now used for index J.
-//                for(int lol =0;lol<characters.length();lol++) {
-//                    System.out.println(characters.charAt(lol));
-//                }
-//            }
-//        }
-//    }
-
-//    private String removeLetters( String input, String letters )
-//    {
-//        char[] removeChars = input.toCharArray();
-//        char[] currentChars = letters.toCharArray();
-//        return currentChars.toString();
-//    }
-
 
     public void getUserInput()
     {
@@ -261,27 +164,13 @@ public class Main {
         letters = spacesSplit[1].toLowerCase();
         if( letters.length() != (squareNum * squareNum) )
             return false;
-        if( containsNum(letters) )
+        if( Helper.containsNum(letters) )
             return false;
 
         //Create wordSquare;
-        int[] charsLeft = countChars(letters.toCharArray());
+        int[] charsLeft = Helper.getCharCount(letters.toCharArray());
         wordSquare = new WordSquare(squareNum,letters,charsLeft);
         return true;
-    }
-
-    public boolean containsNum(String s)
-    {
-        boolean containsNum = false;
-
-        if( s != null ) {
-            for( char c : s.toCharArray() ) {
-                if( containsNum = Character.isDigit(c) ) {
-                    break;
-                }
-            }
-        }
-        return containsNum;
     }
 
     private ArrayList<String> getWordStarting( String startsWith )

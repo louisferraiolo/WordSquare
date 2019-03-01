@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29b399fc-b452-4b72-b309-d2436b7fda60" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/com/louisferraiolo/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/louisferraiolo/Helper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/com/louisferraiolo/WordSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/louisferraiolo/WordSquare.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,8 +24,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="250" column="22" lean-forward="true" selection-start-line="250" selection-start-column="22" selection-end-line="250" selection-end-column="22" />
+            <state relative-caret-position="105">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -36,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+            <state relative-caret-position="298">
+              <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,7 +48,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/WordSquare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="113">
               <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="e#297#298#0" expanded="true" />
@@ -92,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/Helper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -145,10 +145,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/louisferraiolo/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/com/louisferraiolo/Helper.java" />
-        <option value="$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java" />
-        <option value="$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java" />
         <option value="$PROJECT_DIR$/src/main/com/louisferraiolo/WordSquare.java" />
+        <option value="$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java" />
+        <option value="$PROJECT_DIR$/src/main/com/louisferraiolo/Helper.java" />
+        <option value="$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java" />
       </list>
     </option>
   </component>
@@ -257,7 +257,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551454477673" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551456586260" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -353,9 +353,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in WordSquare" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MainTest.testApplicability" />
-        <item itemvalue="JUnit.All in WordSquare" />
         <item itemvalue="JUnit.MainTest" />
         <item itemvalue="JUnit.MainTest.testDownloadDictionaryFromURL" />
       </list>
@@ -375,9 +375,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_WordSquare - 2019.02.25 at 16h 20m 52s.xml">
-      <configuration name="All in WordSquare" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_WordSquare - 2019.03.01 at 13h 26m 31s.xml">
       <configuration name="All in WordSquare" configurationId="JUnit" />
     </history-entry>
@@ -405,6 +402,9 @@
     <history-entry file="MainTest_testApplicability - 2019.03.01 at 15h 33m 49s.xml">
       <configuration name="MainTest.testApplicability" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_WordSquare - 2019.03.01 at 15h 45m 13s.xml">
+      <configuration name="All in WordSquare" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -419,8 +419,8 @@
     <frame x="0" y="23" width="1920" height="1029" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49839744" visible="true" weight="0.16506922" />
-      <window_info id="Structure" order="1" sideWeight="0.5016026" side_tool="true" visible="true" weight="0.16506922" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4991119" visible="true" weight="0.16506922" />
+      <window_info id="Structure" order="1" sideWeight="0.5008881" side_tool="true" visible="true" weight="0.16506922" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -428,8 +428,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3340448" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991462" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3340448" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3991462" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32977587" />
@@ -453,15 +453,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java</url>
-          <line>131</line>
+          <line>111</line>
           <properties />
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java</url>
-          <line>16</line>
-          <properties />
-          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -482,16 +476,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/Helper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/WordSquare.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="113">
           <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#297#298#0" expanded="true" />
@@ -532,18 +519,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        <state relative-caret-position="298">
+          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/Helper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="250" column="22" lean-forward="true" selection-start-line="250" selection-start-column="22" selection-end-line="250" selection-end-column="22" />
+        <state relative-caret-position="105">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
