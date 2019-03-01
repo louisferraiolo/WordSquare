@@ -17,7 +17,8 @@ public class MainTest {
     public static void testMain() {
         String[] args = null;
         main = new Main();
-        wordSquare = new WordSquare(4, "eeeeddoonnnsssrv");
+        String letters = "eeeeddoonnnsssrv";
+        wordSquare = new WordSquare(4, letters, main.countChars(letters.toCharArray()) );
     }
 
     @DisplayName("Download Dictionary from path")

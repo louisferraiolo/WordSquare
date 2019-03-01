@@ -6,15 +6,16 @@ public class WordSquare {
 
     private int squareNum;
     private String letters;
-    private int[] charsLeft = new int[26]; // 26 as there are 26 letters in the alphabet each letter will have how many times it is used assigned to it.
+    private int[] charsLeft; // 26 as there are 26 letters in the alphabet each letter will have how many times it is used assigned to it.
     private ArrayList<String> dictionary = new ArrayList<>();
     private ArrayList<String> usedWords = new ArrayList<>();
     private ArrayList<String> wordSquareWords = new ArrayList<>();
 
-    public WordSquare( int squareNum, String letters )
+    public WordSquare( int squareNum, String letters, int[] charsLeft )
     {
         this.squareNum = squareNum;
         this.letters = letters;
+        this.charsLeft = charsLeft;
     }
 
     public String getLetters()

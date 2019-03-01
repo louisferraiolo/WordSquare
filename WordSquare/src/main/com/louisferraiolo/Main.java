@@ -1,12 +1,11 @@
 package com.louisferraiolo;
 
 import java.io.*;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    WordSquare wordSquare;
+    private WordSquare wordSquare;
 
     public static void main(String[] args)
     {
@@ -17,7 +16,7 @@ public class Main {
         // Convert the string to char array so it can be manipulated more easily (each character)
 //        instance.letters = instance.originalLetters;
         //
-        instance.wordSquare.setCharsLeft(instance.countChars(instance.wordSquare.getLetters().toCharArray()));
+        //instance.wordSquare.setCharsLeft(instance.countChars(instance.wordSquare.getLetters().toCharArray()));
         // Get all the applicable words that could be possible
         Helper.profile(null);
         try {
@@ -78,7 +77,6 @@ public class Main {
         in.close(); // Made sure to close as can lead to leaks.
         return dictionaryList;
     }
-
 
     // Function has to be recursive to avoid multiple nested for loops which would be inefficient.
     private void populateSquare( ArrayList<String> array, int what )
@@ -266,8 +264,9 @@ public class Main {
         if( containsNum(letters) )
             return false;
 
-        //Create wordsquare;
-        wordSquare = new WordSquare(squareNum,letters);
+        //Create wordSquare;
+        int[] charsLeft = countChars(letters.toCharArray());
+        wordSquare = new WordSquare(squareNum,letters,charsLeft);
         return true;
     }
 

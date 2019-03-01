@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29b399fc-b452-4b72-b309-d2436b7fda60" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/com/louisferraiolo/WordSquare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WordSquare/com/louisferraiolo/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WordSquare/com/louisferraiolo/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/com/louisferraiolo/WordSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/louisferraiolo/WordSquare.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="205" selection-start-line="205" selection-end-line="205" />
+            <state relative-caret-position="218">
+              <caret line="250" column="22" lean-forward="true" selection-start-line="250" selection-start-column="22" selection-end-line="250" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -38,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+            <state relative-caret-position="268">
+              <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/WordSquare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="61" column="47" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
+            <state relative-caret-position="270">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="e#297#298#0" expanded="true" />
                 <element signature="e#316#317#0" expanded="true" />
@@ -148,9 +146,9 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/louisferraiolo/Main.java" />
         <option value="$PROJECT_DIR$/src/main/com/louisferraiolo/Helper.java" />
-        <option value="$PROJECT_DIR$/src/main/com/louisferraiolo/WordSquare.java" />
-        <option value="$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java" />
         <option value="$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java" />
+        <option value="$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/com/louisferraiolo/WordSquare.java" />
       </list>
     </option>
   </component>
@@ -259,7 +257,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551453436703" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551454477673" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -321,6 +319,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainTest.testApplicability" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WordSquare" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.louisferraiolo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.louisferraiolo" />
+      <option name="MAIN_CLASS_NAME" value="com.louisferraiolo.MainTest" />
+      <option name="METHOD_NAME" value="testApplicability" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainTest.testDownloadDictionaryFromURL" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WordSquare" />
       <extension name="coverage">
@@ -337,29 +351,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainTest.testGetValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WordSquare" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.louisferraiolo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.louisferraiolo" />
-      <option name="MAIN_CLASS_NAME" value="com.louisferraiolo.MainTest" />
-      <option name="METHOD_NAME" value="testGetValue" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.MainTest.testApplicability" />
         <item itemvalue="JUnit.All in WordSquare" />
         <item itemvalue="JUnit.MainTest" />
         <item itemvalue="JUnit.MainTest.testDownloadDictionaryFromURL" />
-        <item itemvalue="JUnit.MainTest.testGetValue" />
       </list>
     </recent_temporary>
   </component>
@@ -377,12 +375,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_WordSquare - 2019.02.25 at 14h 16m 00s.xml">
-      <configuration name="All in WordSquare" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_WordSquare - 2019.02.25 at 14h 27m 39s.xml">
-      <configuration name="All in WordSquare" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_WordSquare - 2019.02.25 at 16h 20m 52s.xml">
       <configuration name="All in WordSquare" configurationId="JUnit" />
     </history-entry>
@@ -407,6 +399,12 @@
     <history-entry file="All_in_WordSquare - 2019.03.01 at 13h 57m 40s.xml">
       <configuration name="All in WordSquare" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="MainTest_testApplicability - 2019.03.01 at 15h 23m 57s.xml">
+      <configuration name="MainTest.testApplicability" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainTest_testApplicability - 2019.03.01 at 15h 33m 49s.xml">
+      <configuration name="MainTest.testApplicability" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -421,8 +419,8 @@
     <frame x="0" y="23" width="1920" height="1029" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49840763" visible="true" weight="0.16506922" />
-      <window_info id="Structure" order="1" sideWeight="0.50159234" side_tool="true" visible="true" weight="0.16506922" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49839744" visible="true" weight="0.16506922" />
+      <window_info id="Structure" order="1" sideWeight="0.5016026" side_tool="true" visible="true" weight="0.16506922" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -430,11 +428,11 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3340448" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3340448" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991462" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.32977587" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32977587" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32977587" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32977587" />
@@ -455,13 +453,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java</url>
-          <line>133</line>
+          <line>131</line>
           <properties />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java</url>
-          <line>17</line>
+          <line>16</line>
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
@@ -491,30 +489,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="205" selection-start-line="205" selection-end-line="205" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/WordSquare.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="61" column="47" selection-start-line="61" selection-start-column="47" selection-end-line="61" selection-end-column="47" />
+        <state relative-caret-position="270">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#297#298#0" expanded="true" />
             <element signature="e#316#317#0" expanded="true" />
@@ -548,6 +526,26 @@
             <element signature="e#2098#2099#0" expanded="true" />
             <element signature="e#2151#2152#0" expanded="true" />
             <element signature="e#2194#2195#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="250" column="22" lean-forward="true" selection-start-line="250" selection-start-column="22" selection-end-line="250" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
