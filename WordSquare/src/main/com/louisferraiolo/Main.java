@@ -26,17 +26,21 @@ public class Main {
         //
         instance.charsLeft = instance.countChars(instance.letters.toCharArray());
         // Get all the applicable words that could be possible
+        Helper.profile(null);
         try {
             instance.dicList = instance.initialDictionary();
         }catch( IOException exception ) {
             exception.printStackTrace();
         }
+        Helper.profile("Getting relative words");
+        Helper.profile(null);
         if( instance.dicList.size() > 0 ) {
             // TODO: Try eventually do all of this in the one while loop to save time.
             instance.populateSquare(instance.dicList, 1);
         }else{
             System.out.println("No applicable words for that character set.");
         }
+        Helper.profile("Creating word square");
 //        main.getAllWordsStartWith('b');
         instance.printArray(instance.wordSquare, "FINAL wordSquare");
     }
@@ -49,7 +53,6 @@ public class Main {
             int index = currentChar - 97; // 97 as it is the ASCII code for 'a'.
             countedChars[index]++; // Increment the amount of times that specific charcter in the alphabet is used.
             //System.out.println(currentChar + " is used: " + countedChars[index] + " times.");
-
         }
         return countedChars; // Not straight assigning it to charsLeft as the jUnit testing can use the method and return something.
     }
@@ -266,6 +269,11 @@ public class Main {
             exception.printStackTrace();
             return false;
         }
+        originalLetters = spacesSplit[1].toLowerCase();
+        if( originalLetters.length() != (squareNum * squareNum) )
+            return false;
+        if( containsNum(originalLetters) )
+            return false;
         return true;
     }
 
@@ -285,7 +293,6 @@ public class Main {
 
     private ArrayList<String> getWordStarting( String startsWith )
     {
-
         ArrayList<String> wordsStarting  = new ArrayList<>();
         for( String word : dicList )
         {
