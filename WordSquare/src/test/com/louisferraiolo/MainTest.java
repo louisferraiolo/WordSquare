@@ -11,11 +11,13 @@ import java.io.IOException;
 public class MainTest {
 
     private static Main main;
+    private static WordSquare wordSquare;
 
     @BeforeAll
     public static void testMain() {
         String[] args = null;
-        main = new Main(); // TODO: FIX CODE
+        main = new Main();
+        wordSquare = new WordSquare(4, "eeeeddoonnnsssrv");
     }
 
     @DisplayName("Download Dictionary from path")
@@ -27,11 +29,11 @@ public class MainTest {
      */
     public void testDownloadDictionaryFromDesktop() {
         try {
-            main.dicList = main.initialDictionary();
+            wordSquare.setDictionary(main.initialDictionary());
         } catch( IOException exception ) {
             exception.printStackTrace();
         }
-        Assertions.assertNotNull( main.dicList, "dictionary list is null");
+        Assertions.assertNotNull( wordSquare.getDictionary(), "dictionary list is null");
         //Assertions.assertEquals("aa", main.dicList.get(0), "dictionary list first index value isn't what expected." );
     }
 

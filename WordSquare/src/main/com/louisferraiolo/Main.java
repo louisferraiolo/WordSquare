@@ -6,14 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    ArrayList<String> dicList;
-    int squareNum; // TODO: Make a class for these;
-    String originalLetters; // TODO: Make a class for these;
-    String letters; // TODO: Make a class for these;
-    int[] charsLeft = new int[26]; // 26 as there are 26 letters in the alphabet each letter will have how many times it is used assigned to it.
-    ArrayList<String> usedWords  = new ArrayList<>();
-    ArrayList<String> wordSquare  = new ArrayList<>();
-
+    WordSquare wordSquare;
 
     public static void main(String[] args)
     {
@@ -22,27 +15,27 @@ public class Main {
         instance.getUserInput();
 
         // Convert the string to char array so it can be manipulated more easily (each character)
-        instance.letters = instance.originalLetters;
+//        instance.letters = instance.originalLetters;
         //
-        instance.charsLeft = instance.countChars(instance.letters.toCharArray());
+        instance.wordSquare.setCharsLeft(instance.countChars(instance.wordSquare.getLetters().toCharArray()));
         // Get all the applicable words that could be possible
         Helper.profile(null);
         try {
-            instance.dicList = instance.initialDictionary();
+            instance.wordSquare.setDictionary(instance.initialDictionary());
         }catch( IOException exception ) {
             exception.printStackTrace();
         }
         Helper.profile("Getting relative words");
         Helper.profile(null);
-        if( instance.dicList.size() > 0 ) {
+        if( instance.wordSquare.getDictionary().size() > 0 ) {
             // TODO: Try eventually do all of this in the one while loop to save time.
-            instance.populateSquare(instance.dicList, 1);
+            instance.populateSquare(instance.wordSquare.getDictionary(), 1);
         }else{
             System.out.println("No applicable words for that character set.");
         }
         Helper.profile("Creating word square");
 //        main.getAllWordsStartWith('b');
-        instance.printArray(instance.wordSquare, "FINAL wordSquare");
+        instance.printArray(instance.wordSquare.getWordSquareWords(), "FINAL wordSquare");
     }
 
     public int[] countChars( char[] array )
@@ -73,16 +66,16 @@ public class Main {
         // Do all my manipulating inside this loop as creating another for loop will make it O(n^2).
         while( (currentInput = in.readLine() ) != null ) // Time complexity O(n) where n is the amount of lines in the txt file
         {
-            if( currentInput.length() == squareNum  ) // Only use the words from dictionary which have same length as specified.
+            if( currentInput.length() == wordSquare.getSquareNum()  ) // Only use the words from dictionary which have same length as specified.
             {
                 // Matches the optimal length.
-                if( checkApplicable(currentInput, charsLeft) ) { // Getting all words which can be made from the letter set (widens down search aswell - easier to process).
+                if( checkApplicable(currentInput, wordSquare.getCharsLeft()) ) { // Getting all words which can be made from the letter set (widens down search aswell - easier to process).
                     //System.out.println(currentInput);
                     dictionaryList.add(currentInput);
                 }
             }
         }
-        in.close();
+        in.close(); // Made sure to close as can lead to leaks.
         return dictionaryList;
     }
 
@@ -106,10 +99,10 @@ public class Main {
             {
                 printArray(wordsStarting, "wordsStarting");
                 addToWordSquare(initialWord);
-                if(what == squareNum)
+                if(what == wordSquare.getSquareNum())
                 {
-                    System.out.println("2736126362137 - REACHED ALL WORDS !!");
-                    printArray(wordSquare, "wordSquare");
+                    System.out.println("REACHED ALL WORDS !!");
+                    printArray(wordSquare.getWordSquareWords(), "wordSquare");
                     break;
                 }
                 System.out.println("what: " + what);
@@ -125,22 +118,19 @@ public class Main {
 
     }
 
-    // TODO: Get rid of this awful global var;
-    String currentWord;
 
     private void addToWordSquare( String initialWord )
     {
-        currentWord = initialWord;
-        usedWords.add(initialWord);
-        wordSquare.add(initialWord);
-        charsLeft = removeCharacters(initialWord, charsLeft);
+        wordSquare.addUsedWord(initialWord);
+        wordSquare.addWordSquareWord(initialWord);
+        wordSquare.setCharsLeft(removeCharacters(initialWord, wordSquare.getCharsLeft()));
     }
 
 
     public int[] removeCharacters( String word, int[] array )
     {
         String lettersLeft = getLettersLeft(array);
-        System.out.println("Word: " + currentWord + " <> lettersLeft PRE: " + lettersLeft );
+        System.out.println("Word: " + word + " <> lettersLeft PRE: " + lettersLeft );
         ArrayList<Integer> indexes = new ArrayList<>(); // This will hopefully avoid the problem of letters having 2 a's but word having 1 a.
         for( int i = 0; i < word.length(); i++ )
         {
@@ -213,7 +203,6 @@ public class Main {
     {
         for( int i = 0; i < input.length(); i++ )
         {
-            // TODO: Works for now but is there a better way. - Implementing better way.
             char currentChar = input.charAt(i);
             int index = currentChar - 97; // 97 as it is the ASCII code for 'a'.
             if( array[index] == 0 )
@@ -261,6 +250,8 @@ public class Main {
     public boolean checkUserInput( String input )
     {
         String[] spacesSplit = input.split("\\s+");
+        int squareNum;
+        String letters;
         if( spacesSplit.length != 2 )
             return false;
         try {
@@ -269,11 +260,14 @@ public class Main {
             exception.printStackTrace();
             return false;
         }
-        originalLetters = spacesSplit[1].toLowerCase();
-        if( originalLetters.length() != (squareNum * squareNum) )
+        letters = spacesSplit[1].toLowerCase();
+        if( letters.length() != (squareNum * squareNum) )
             return false;
-        if( containsNum(originalLetters) )
+        if( containsNum(letters) )
             return false;
+
+        //Create wordsquare;
+        wordSquare = new WordSquare(squareNum,letters);
         return true;
     }
 
@@ -294,9 +288,9 @@ public class Main {
     private ArrayList<String> getWordStarting( String startsWith )
     {
         ArrayList<String> wordsStarting  = new ArrayList<>();
-        for( String word : dicList )
+        for( String word : wordSquare.getDictionary() )
         {
-            if( word.startsWith(startsWith) && !usedWords.contains(startsWith) && checkApplicable(word,charsLeft) ) {
+            if( word.startsWith(startsWith) && !wordSquare.getUsedWords().contains(startsWith) && checkApplicable(word,wordSquare.getCharsLeft()) ) {
                 wordsStarting.add(word);
             }
         }
