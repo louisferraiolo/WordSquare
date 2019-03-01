@@ -15,7 +15,8 @@ public class Main {
     ArrayList<String> wordSquare  = new ArrayList<>();
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         Main instance = new Main(); // Had to create an instance of main as you cannot call a non-static method from a static method.
         // Get users input to allow for the larger word squares and custom input.
         instance.getUserInput();
@@ -40,14 +41,14 @@ public class Main {
         instance.printArray(instance.wordSquare, "FINAL wordSquare");
     }
 
-    private int[] countChars( char[] array )
+    public int[] countChars( char[] array )
     {
         int[] countedChars = new int[26];
         for( char currentChar : array )
         {
             int index = currentChar - 97; // 97 as it is the ASCII code for 'a'.
             countedChars[index]++; // Increment the amount of times that specific charcter in the alphabet is used.
-            System.out.println(currentChar + " is used: " + countedChars[index] + " times.");
+            //System.out.println(currentChar + " is used: " + countedChars[index] + " times.");
 
         }
         return countedChars; // Not straight assigning it to charsLeft as the jUnit testing can use the method and return something.
@@ -59,7 +60,11 @@ public class Main {
 
         String home = System.getProperty("user.home");
         File f = new File(home + File.separator + "Desktop" + File.separator + "dictionary.txt");
-
+        if(!f.exists())
+        {
+            System.out.println("File not found at: " + f.getAbsolutePath() );
+            System.exit(1);
+        }
         BufferedReader in = new BufferedReader(new FileReader(f));
         String currentInput;
         // Do all my manipulating inside this loop as creating another for loop will make it O(n^2).
@@ -68,8 +73,8 @@ public class Main {
             if( currentInput.length() == squareNum  ) // Only use the words from dictionary which have same length as specified.
             {
                 // Matches the optimal length.
-                if( checkApplicable(currentInput) ) { // Getting all words which can be made from the letter set (widens down search aswell - easier to process).
-                    System.out.println(currentInput);
+                if( checkApplicable(currentInput, charsLeft) ) { // Getting all words which can be made from the letter set (widens down search aswell - easier to process).
+                    //System.out.println(currentInput);
                     dictionaryList.add(currentInput);
                 }
             }
@@ -96,8 +101,8 @@ public class Main {
             ArrayList<String> wordsStarting = getWordStarting(letter);
             if( wordsStarting.size() > 0 )
             {
-                addToWordSquare(initialWord);
                 printArray(wordsStarting, "wordsStarting");
+                addToWordSquare(initialWord);
                 if(what == squareNum)
                 {
                     System.out.println("2736126362137 - REACHED ALL WORDS !!");
@@ -125,36 +130,37 @@ public class Main {
         currentWord = initialWord;
         usedWords.add(initialWord);
         wordSquare.add(initialWord);
-        removeCharacters(initialWord);
+        charsLeft = removeCharacters(initialWord, charsLeft);
     }
 
 
-    private void removeCharacters( String word )
+    public int[] removeCharacters( String word, int[] array )
     {
-        String lettersLeft = getLettersLeft();
+        String lettersLeft = getLettersLeft(array);
         System.out.println("Word: " + currentWord + " <> lettersLeft PRE: " + lettersLeft );
         ArrayList<Integer> indexes = new ArrayList<>(); // This will hopefully avoid the problem of letters having 2 a's but word having 1 a.
         for( int i = 0; i < word.length(); i++ )
         {
             char currentChar = word.charAt(i);
             int index = currentChar - 97; // 97 as it is the ASCII code for 'a'.
-            int previousVal = charsLeft[index];
-            charsLeft[index]--; // Decrement the amount of times that specific charcter in the alphabet is used.
-            System.out.println(currentChar + " is now used: " + charsLeft[index] + " times from " + previousVal + " times.");
+            int previousVal = array[index];
+            array[index]--; // Decrement the amount of times that specific charcter in the alphabet is used.
+            System.out.println(currentChar + " is now used: " + array[index] + " times from " + previousVal + " times.");
         }
-        lettersLeft = getLettersLeft();
+        lettersLeft = getLettersLeft(array);
         System.out.println("lettersLeft POST: " +  lettersLeft );
+        return array;
     }
 
-    private String getLettersLeft()
+    public String getLettersLeft( int[]array )
     {
         String buildingString = "";
-        for( int i = 0; i < charsLeft.length; i++ )
+        for( int i = 0; i < array.length; i++ )
         {
             char c = (char)(i+97);
-            if( charsLeft[i] > 0 )
+            if( array[i] > 0 )
             {
-                for( int j = 0; j < charsLeft[i]; j++ )
+                for( int j = 0; j < array[i]; j++ )
                     buildingString += c;
             }
         }
@@ -200,14 +206,14 @@ public class Main {
 //        return String.valueOf(charArray);
 //    }
 
-    private boolean checkApplicable( String input )
+    public boolean checkApplicable( String input, int[] array )
     {
         for( int i = 0; i < input.length(); i++ )
         {
             // TODO: Works for now but is there a better way. - Implementing better way.
             char currentChar = input.charAt(i);
             int index = currentChar - 97; // 97 as it is the ASCII code for 'a'.
-            if( charsLeft[index] == 0 )
+            if( array[index] == 0 )
             {
                 return false;
             }
@@ -252,7 +258,7 @@ public class Main {
     public boolean checkUserInput( String input )
     {
         String[] spacesSplit = input.split("\\s+");
-        if ( spacesSplit.length != 2 )
+        if( spacesSplit.length != 2 )
             return false;
         try {
             squareNum = Integer.parseInt(spacesSplit[0]);
@@ -260,11 +266,6 @@ public class Main {
             exception.printStackTrace();
             return false;
         }
-        originalLetters = spacesSplit[1].toLowerCase();
-        if( originalLetters.length() != (squareNum * squareNum) )
-            return false;
-        if( containsNum(originalLetters) )
-            return false;
         return true;
     }
 
@@ -288,7 +289,7 @@ public class Main {
         ArrayList<String> wordsStarting  = new ArrayList<>();
         for( String word : dicList )
         {
-            if( word.startsWith(startsWith) && !usedWords.contains(startsWith) && checkApplicable(word) ) {
+            if( word.startsWith(startsWith) && !usedWords.contains(startsWith) && checkApplicable(word,charsLeft) ) {
                 wordsStarting.add(word);
             }
         }

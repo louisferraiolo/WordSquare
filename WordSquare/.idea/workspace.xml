@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="29b399fc-b452-4b72-b309-d2436b7fda60" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/WordSquare$All_in_WordSquare.ic" NAME="All in WordSquare Coverage Results" MODIFIED="1551091099481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/WordSquare$All_in_WordSquare.ic" NAME="All in WordSquare Coverage Results" MODIFIED="1551448024625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageViewManager">
     <option name="myElementSize" value="241" />
@@ -22,8 +23,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+            <state relative-caret-position="192">
+              <caret line="49" selection-start-line="49" selection-end-line="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,8 +35,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="145" column="63" selection-start-line="145" selection-start-column="63" selection-end-line="145" selection-end-column="63" />
+            <state relative-caret-position="527">
+              <caret line="130" column="35" lean-forward="true" selection-start-line="130" selection-start-column="35" selection-end-line="130" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,7 +47,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home/src.zip!/java/lang/String.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9090">
+            <state relative-caret-position="-172">
               <caret line="657" selection-start-line="657" selection-end-line="657" />
             </state>
           </provider>
@@ -74,8 +75,11 @@
       <find>post le</find>
       <find>post letters:</find>
       <find>oven</find>
-      <find>wordsStarting</find>
       <find>Word:</find>
+      <find>wordsStart</find>
+      <find>wordsStarting</find>
+      <find>POST</find>
+      <find>error</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -199,7 +203,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551440840532" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551448321120" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -227,7 +231,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in WordSquare">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.louisferraiolo.Main" />
       <module name="WordSquare" />
@@ -295,8 +299,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in WordSquare" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MainTest" />
         <item itemvalue="JUnit.MainTest.testDownloadDictionaryFromURL" />
         <item itemvalue="JUnit.MainTest.testGetValue" />
@@ -317,24 +321,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_WordSquare - 2019.02.25 at 11h 52m 38s.xml">
-      <configuration name="All in WordSquare" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_WordSquare - 2019.02.25 at 11h 53m 19s.xml">
-      <configuration name="All in WordSquare" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_WordSquare - 2019.02.25 at 13h 05m 48s.xml">
-      <configuration name="All in WordSquare" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainTest - 2019.02.25 at 13h 49m 53s.xml">
-      <configuration name="MainTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainTest - 2019.02.25 at 13h 52m 40s.xml">
-      <configuration name="MainTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainTest - 2019.02.25 at 13h 59m 14s.xml">
-      <configuration name="MainTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_WordSquare - 2019.02.25 at 14h 12m 40s.xml">
       <configuration name="All in WordSquare" configurationId="JUnit" />
     </history-entry>
@@ -345,6 +331,24 @@
       <configuration name="All in WordSquare" configurationId="JUnit" />
     </history-entry>
     <history-entry file="All_in_WordSquare - 2019.02.25 at 16h 20m 52s.xml">
+      <configuration name="All in WordSquare" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_WordSquare - 2019.03.01 at 13h 26m 31s.xml">
+      <configuration name="All in WordSquare" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_WordSquare - 2019.03.01 at 13h 26m 35s.xml">
+      <configuration name="All in WordSquare" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_WordSquare - 2019.03.01 at 13h 27m 44s.xml">
+      <configuration name="All in WordSquare" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_WordSquare - 2019.03.01 at 13h 28m 59s.xml">
+      <configuration name="All in WordSquare" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_WordSquare - 2019.03.01 at 13h 29m 04s.xml">
+      <configuration name="All in WordSquare" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_WordSquare - 2019.03.01 at 13h 47m 08s.xml">
       <configuration name="All in WordSquare" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -395,13 +399,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java</url>
-          <line>25</line>
+          <line>26</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java</url>
-          <line>135</line>
+          <line>140</line>
           <properties />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
@@ -426,15 +430,15 @@
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9090">
+        <state relative-caret-position="-172">
           <caret line="657" selection-start-line="657" selection-end-line="657" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/com/louisferraiolo/MainTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+        <state relative-caret-position="192">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -443,8 +447,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/louisferraiolo/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="145" column="63" selection-start-line="145" selection-start-column="63" selection-end-line="145" selection-end-column="63" />
+        <state relative-caret-position="527">
+          <caret line="130" column="35" lean-forward="true" selection-start-line="130" selection-start-column="35" selection-end-line="130" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

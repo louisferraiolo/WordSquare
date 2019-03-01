@@ -18,18 +18,17 @@ public class MainTest {
         main = new Main(); // TODO: FIX CODE
     }
 
-    @DisplayName("Download Dictionary from URL")
+    @DisplayName("Download Dictionary from path")
     @Test
     /*
     Reasons for a fail:
-    - No internet (cannot test inside here)
-    - Wrong URL
     - Not enough space
+    - File not found
      */
-    public void testDownloadDictionaryFromURL() {
+    public void testDownloadDictionaryFromDesktop() {
         try {
             main.dicList = main.initialDictionary();
-        }catch(IOException exception) {
+        } catch( IOException exception ) {
             exception.printStackTrace();
         }
         Assertions.assertNotNull( main.dicList, "dictionary list is null");
@@ -67,5 +66,45 @@ public class MainTest {
         Assertions.assertTrue(main.containsNum("1"), "returned as false for 1");
         Assertions.assertFalse(main.containsNum("a"), "Method allowed 'a' as digit");
         Assertions.assertFalse(main.containsNum("lo lol"), "Method allowed 'lo lol' as digit");
+    }
+
+    @DisplayName("Test deleting characters")
+    @Test
+    /*
+    Reasons for a fail:
+    - Digit instead of character (no chance of that happening due to validation previously).
+     */
+    public void testDeletingCharacters()
+    {
+        // Check declining all horrible inputs
+        String letters = "abbcddef";
+        char currentChar = letters.charAt(1);
+        int index = currentChar - 97; // 97 as it is the ASCII code for 'a'.
+        int[] charsLeft = main.countChars(letters.toCharArray());
+        Assertions.assertEquals(charsLeft[index], 2); // Checking there are 2 b's.
+        String word = "dad";
+        currentChar = word.charAt(0);
+        index = currentChar - 97;
+        charsLeft = main.removeCharacters(word, charsLeft);
+        Assertions.assertEquals(charsLeft[index], 0); // Should return as 0 as used the a.
+    }
+
+    @DisplayName("Test applicability")
+    @Test
+    /*
+    Reasons for a fail:
+    - Digit instead of character (no chance of that happening due to validation previously).
+     */
+    public void testApplicability()
+    {
+        // Check declining all horrible inputs
+        String letters = "aabceillpp";
+        int[] charsLeft = main.countChars(letters.toCharArray());
+        String word = "applicable";
+        boolean applicable = main.checkApplicable(word, charsLeft);
+        Assertions.assertTrue(applicable); // Should be true as the letterset contains all the characters inside word.
+        word = "dog";
+        applicable = main.checkApplicable(word, charsLeft);
+        Assertions.assertFalse(applicable); // Should be false as the letterset does not contain the nessecary characters which is (d, o and g).
     }
 }
