@@ -10,8 +10,7 @@ public class Main {
     int squareNum; // TODO: Make a class for these;
     String originalLetters; // TODO: Make a class for these;
     String letters; // TODO: Make a class for these;
-    char[] letterCharSet; // TODO: Make a class for these;
-    int[] charsLeft = new int[64];
+    int[] charsLeft = new int[26]; // 26 as there are 26 letters in the alphabet each letter will have how many times it is used assigned to it.
     ArrayList<String> usedWords  = new ArrayList<>();
     ArrayList<String> wordSquare  = new ArrayList<>();
 
@@ -23,9 +22,8 @@ public class Main {
 
         // Convert the string to char array so it can be manipulated more easily (each character)
         instance.letters = instance.originalLetters;
-        instance.letterCharSet = instance.letters.toCharArray();
         //
-        instance.charsLeft = instance.countChars();
+        instance.charsLeft = instance.countChars(instance.letters.toCharArray());
         // Get all the applicable words that could be possible
         try {
             instance.dicList = instance.initialDictionary();
@@ -39,20 +37,20 @@ public class Main {
             System.out.println("No applicable words for that character set.");
         }
 //        main.getAllWordsStartWith('b');
-//        main.printDictionary();
+        instance.printArray(instance.wordSquare, "FINAL wordSquare");
     }
 
-    private int[] countChars()
+    private int[] countChars( char[] array )
     {
-        int[] countedChars = new int[64];
-        for( char currentChar : letterCharSet )
+        int[] countedChars = new int[26];
+        for( char currentChar : array )
         {
             int index = currentChar - 97; // 97 as it is the ASCII code for 'a'.
             countedChars[index]++; // Increment the amount of times that specific charcter in the alphabet is used.
             System.out.println(currentChar + " is used: " + countedChars[index] + " times.");
 
         }
-        return countedChars;
+        return countedChars; // Not straight assigning it to charsLeft as the jUnit testing can use the method and return something.
     }
 
     public ArrayList<String> initialDictionary() throws IOException
@@ -70,7 +68,7 @@ public class Main {
             if( currentInput.length() == squareNum  ) // Only use the words from dictionary which have same length as specified.
             {
                 // Matches the optimal length.
-                if( checkApplicable( currentInput, letters ) ) {
+                if( checkApplicable(currentInput) ) { // Getting all words which can be made from the letter set (widens down search aswell - easier to process).
                     System.out.println(currentInput);
                     dictionaryList.add(currentInput);
                 }
@@ -94,7 +92,7 @@ public class Main {
                 if( initialWord.length() > j )
                     letter += Character.toString(initialWord.charAt(j));
             }
-            System.out.println("LETTER: " + letter);
+            //System.out.println("LETTER: " + letter);
             ArrayList<String> wordsStarting = getWordStarting(letter);
             if( wordsStarting.size() > 0 )
             {
@@ -127,75 +125,89 @@ public class Main {
         currentWord = initialWord;
         usedWords.add(initialWord);
         wordSquare.add(initialWord);
-        System.out.println("(D) addtoWordSquare: pre letters: " + letters);
         removeCharacters(initialWord);
-        System.out.println("(D) addtoWordSquare: post letters: " + letters);
-
     }
 
 
     private void removeCharacters( String word )
     {
-        System.out.println("Word: " + currentWord + " <> letterSet: " + letters);
+        String lettersLeft = getLettersLeft();
+        System.out.println("Word: " + currentWord + " <> lettersLeft PRE: " + lettersLeft );
         ArrayList<Integer> indexes = new ArrayList<>(); // This will hopefully avoid the problem of letters having 2 a's but word having 1 a.
-        //String newLetters = "";
-        for( int i = 0; i < letters.length(); i++ )
+        for( int i = 0; i < word.length(); i++ )
         {
-            if( currentWord.contains(Character.toString(letters.charAt(i))) )
+            char currentChar = word.charAt(i);
+            int index = currentChar - 97; // 97 as it is the ASCII code for 'a'.
+            int previousVal = charsLeft[index];
+            charsLeft[index]--; // Decrement the amount of times that specific charcter in the alphabet is used.
+            System.out.println(currentChar + " is now used: " + charsLeft[index] + " times from " + previousVal + " times.");
+        }
+        lettersLeft = getLettersLeft();
+        System.out.println("lettersLeft POST: " +  lettersLeft );
+    }
+
+    private String getLettersLeft()
+    {
+        String buildingString = "";
+        for( int i = 0; i < charsLeft.length; i++ )
+        {
+            char c = (char)(i+97);
+            if( charsLeft[i] > 0 )
             {
-                System.out.println( "(D) letter deleting: " + letters.charAt(i) + ", letters: " + letters );
-                letters = removeChar(letters, letters.charAt(i));
+                for( int j = 0; j < charsLeft[i]; j++ )
+                    buildingString += c;
             }
         }
+        return buildingString;
     }
 
-    private String removeChar( String input, char c )
-    {
-        System.out.println( "(D) PRE: " + input );
-        int i = 0, j = i, k = 0, n = input.length();
-        boolean found = false;
-        char []charArray = input.toCharArray();
-        // Iterate over each char
-        StringBuilder build = new StringBuilder(input);
-//        while( i < n )
+//    private String removeChar( String input, char c )
+//    {
+//        System.out.println( "(D) PRE: " + input );
+//        int i = 0, j = i, k = 0, n = input.length();
+//        boolean found = false;
+//        char []charArray = input.toCharArray();
+//        // Iterate over each char
+//        StringBuilder build = new StringBuilder(input);
+////        while( i < n )
+////        {
+////            System.out.println("(D) Comparing: " + charArray[i] + " against: " + c);
+////            if( charArray[i] != c && !found ) {
+////                charArray[j++] = charArray[i];
+////            }else if(!found){
+////                System.out.println("(D) PRE input: " + build);
+////                k++;
+////                build.deleteCharAt(i);
+////                System.out.println("(D) POST input: " + build);
+////                found = true;
+////            }
+////            i++;
+////        }
+//        for (i = j = 0; i < n; i++)
 //        {
-//            System.out.println("(D) Comparing: " + charArray[i] + " against: " + c);
-//            if( charArray[i] != c && !found ) {
+//            if (charArray[i] != c)
 //                charArray[j++] = charArray[i];
-//            }else if(!found){
-//                System.out.println("(D) PRE input: " + build);
+//            else
 //                k++;
-//                build.deleteCharAt(i);
-//                System.out.println("(D) POST input: " + build);
-//                found = true;
-//            }
-//            i++;
 //        }
-        for (i = j = 0; i < n; i++)
-        {
-            if (charArray[i] != c)
-                charArray[j++] = charArray[i];
-            else
-                k++;
-        }
+//
+//        while(k > 0)
+//        {
+//            charArray[j++] = '\0'; // Account for the end of each char[] having this here to show end of char sequence.
+//            k--;
+//        }
+//        System.out.println( "(D) POST: " + String.valueOf(charArray) );
+//        return String.valueOf(charArray);
+//    }
 
-        while(k > 0)
-        {
-            charArray[j++] = '\0'; // Account for the end of each char[] having this here to show end of char sequence.
-            k--;
-        }
-        System.out.println( "(D) POST: " + String.valueOf(charArray) );
-        return String.valueOf(charArray);
-    }
-
-    private boolean checkApplicable( String input, String letters )
+    private boolean checkApplicable( String input )
     {
-        int inputLen = input.length();
-        for( int i = 0; i < inputLen; i++ )
+        for( int i = 0; i < input.length(); i++ )
         {
-            // TODO: Works for now but is there a better way.
+            // TODO: Works for now but is there a better way. - Implementing better way.
             char currentChar = input.charAt(i);
-            if( !letters.contains( Character.toString(currentChar) ) )
+            int index = currentChar - 97; // 97 as it is the ASCII code for 'a'.
+            if( charsLeft[index] == 0 )
             {
                 return false;
             }
@@ -276,7 +288,7 @@ public class Main {
         ArrayList<String> wordsStarting  = new ArrayList<>();
         for( String word : dicList )
         {
-            if(word.startsWith(startsWith) && !usedWords.contains(startsWith)) {
+            if( word.startsWith(startsWith) && !usedWords.contains(startsWith) && checkApplicable(word) ) {
                 wordsStarting.add(word);
             }
         }
